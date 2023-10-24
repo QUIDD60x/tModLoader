@@ -8,7 +8,8 @@ namespace ExampleMod.Common.GlobalNPCs
 {
 	class ExampleNPCShop : GlobalNPC
 	{
-		public override void ModifyShop(NPCShop shop) {
+		public override void ModifyShop(Terraria.Modloader.NPCShop shop) {
+  		base.ModifyShop(shop);
 			if (shop.NpcType == NPCID.Dryad) {
 				// Adding an item to a vanilla NPC is easy:
 				// This item sells for the normal price.
