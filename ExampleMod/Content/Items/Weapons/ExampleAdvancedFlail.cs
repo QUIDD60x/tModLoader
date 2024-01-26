@@ -15,6 +15,7 @@ namespace ExampleMod.Content.Items.Weapons
 		}
 
 		public override void SetDefaults() {
+  			// Item properties
 			Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
 			Item.useAnimation = 45; // The item's use time in ticks (60 ticks == 1 second.)
 			Item.useTime = 45; // The item's use time in ticks (60 ticks == 1 second.)
@@ -26,11 +27,12 @@ namespace ExampleMod.Content.Items.Weapons
 			Item.shoot = ModContent.ProjectileType<ExampleAdvancedFlailProjectile>(); // The flail projectile
 			Item.shootSpeed = 12f; // The speed of the projectile measured in pixels per frame.
 			Item.UseSound = SoundID.Item1; // The sound that this item makes when used
+   			Item.noMelee = true; // This makes sure the item does not deal damage from the swinging animation
+	  		Item.DamageType = DamageClass.MeleeNoSpeed; // Deals melee damage
+			Item.channel = true; // Setting this to true allows you to hold it out and "charge" the item (as flails do).
+   			// Item value
 			Item.rare = ItemRarityID.Green; // The color of the name of your item
 			Item.value = Item.sellPrice(gold: 1, silver: 50); // Sells for 1 gold 50 silver
-			Item.DamageType = DamageClass.MeleeNoSpeed; // Deals melee damage
-			Item.channel = true;
-			Item.noMelee = true; // This makes sure the item does not deal damage from the swinging animation
 		}
 
 		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
